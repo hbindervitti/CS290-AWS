@@ -2,6 +2,10 @@ var express = require('express');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -21,6 +25,17 @@ app.get('/show-data',function(req,res){
   res.render('getReq', context);
 });
 
+app.post('/post-loopback', function(req,res){
+  var qParams = [];
+  for (var p in req.body){
+    qParams.push({'name':p,'value':req.body[p]})
+  }
+  console.log(qParams);		//debug
+  console.log(req.body);	//debug
+  var context = {};
+  context.dataList = qParams;
+  res.render('postReq', context);
+});
 
 app.use(function(req,res){
   res.status(404);
