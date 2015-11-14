@@ -11,21 +11,20 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-app.post('/', function(req, res){
-	var context = readData('GET', req, false);
-	context.post = readData('POST', req, true);
+app.post('/data', function(req, res){
+	var context = readData('POST', req, true);
 	context.isPost = true;
 	res.render('displayReq', context);
 });
 
-app.get('/', function(req, res){
+app.get('/data', function(req, res){
 	var context = readData('Get', res, false);
 	context.isPost = false;
 	res.render('displayReq', context);
 });
 
-var readData = function(type, req, isPost){
-if(isPost)
+var readData = function(type, req, postReq){
+if(postReq)
 {
 	var qParams = [];
 	for (var p in req.body){
