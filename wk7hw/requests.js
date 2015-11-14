@@ -11,21 +11,15 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 80);
 
-//app.get('/',function(req,res){
-//  res.render('home') 
-//});
-
 app.post('/', function(req, res){
 	var context = {};
 	context.dataList = readData('POST', req);
-	//context.isPost = true;
 	res.render('postReq', context);
 });
 
 app.get('/', function(req, res){
 	var context = {};
 	context.dataList = readData('Get', req);
-	//context.isPost = false;
 	res.render('getReq', context);
 });
 
@@ -36,8 +30,6 @@ var readData = function(type, req){
 		for (var p in req.body){
 			qParams.push({'name':p,'value':req.body[p]})
 		}
-		console.log(qParams);		//debug
-		console.log(req.body);	//debug
 		return qParams;
 	}
 	else
@@ -62,6 +54,6 @@ app.use(function(err, req, res, next){
   res.render('500');
 });
 
-app.listen(app.get('port'), function(){
-  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
-});
+//app.listen(app.get('port'), function(){
+//  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+//});
