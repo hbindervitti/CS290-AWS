@@ -18,7 +18,7 @@ app.post('/data', function(req, res){
 });
 
 app.get('/data', function(req, res){
-	var context = readData('Get', res, false);
+	var context = readData('Get', req, false);
 	context.isPost = false;
 	res.render('displayReq', context);
 });
