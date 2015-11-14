@@ -1,0 +1,15 @@
+{{#if isPost}}
+	<h1>You sent the following data in a POST request:</h1>
+	<ul>
+	  {{#each dataList}}
+		<li>{{this.name}}: {{this.value}}
+	  {{/each}}
+	</ul>
+{{else}}
+	<h1>You sent the following data in a GET request:</h1>
+	<ul>
+	  {{#each dataList}}
+		<li>{{this.name}}: {{this.value}}
+	  {{/each}}
+	</ul>
+{{/if}}
