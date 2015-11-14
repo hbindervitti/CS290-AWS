@@ -11,39 +11,43 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
+app.get('/',function(req,res){
+  res.render('home') 
+});
+
 app.post('/data', function(req, res){
-	var context = readData('POST', req, true);
-	context.isPost = true;
-	res.render('displayReq', context);
+	var context = {};
+	context.dataList = readData('POST', req);
+	//context.isPost = true;
+	res.render('postReq', context);
 });
 
 app.get('/data', function(req, res){
-	var context = readData('Get', req, false);
-	context.isPost = false;
-	res.render('displayReq', context);
+	var context = {};
+	context.dataList = readData('Get', req);
+	//context.isPost = false;
+	res.render('getReq', context);
 });
 
-var readData = function(type, req, postReq){
-if(postReq)
-{
-	var qParams = [];
-	for (var p in req.body){
-		qParams.push({'name':p,'value':req.body[p]})
+var readData = function(type, req){
+	if(type == 'POST')
+	{
+		var qParams = [];
+		for (var p in req.body){
+			qParams.push({'name':p,'value':req.body[p]})
+		}
+		console.log(qParams);		//debug
+		console.log(req.body);	//debug
+		return qParams;
 	}
-	console.log(qParams);		//debug
-	console.log(req.body);	//debug
-	var context = {};
-	context.dataList = qParams;
-}
-else
-{
-	var qParams = [];
-	for (var p in req.query){
-		qParams.push({'name':p,'value':req.query[p]})
+	else
+	{
+		var qParams = [];
+		for (var p in req.query){
+			qParams.push({'name':p,'value':req.query[p]})
+		}
+		return qParams;
 	}
-	var context = {};
-	context.dataList = qParams;
-}
 };
 
 app.use(function(req,res){
