@@ -9,20 +9,20 @@ app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 3000);
+app.set('port', 80);
 
-app.get('/',function(req,res){
-  res.render('home') 
-});
+//app.get('/',function(req,res){
+//  res.render('home') 
+//});
 
-app.post('/data', function(req, res){
+app.post('/', function(req, res){
 	var context = {};
 	context.dataList = readData('POST', req);
 	//context.isPost = true;
 	res.render('postReq', context);
 });
 
-app.get('/data', function(req, res){
+app.get('/', function(req, res){
 	var context = {};
 	context.dataList = readData('Get', req);
 	//context.isPost = false;
