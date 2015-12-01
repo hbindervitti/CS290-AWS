@@ -1,4 +1,7 @@
 
+var Highcharts = require('highcharts');
+var server = new Highcharts(3000);
+
 //global options
 Highcharts.setOptions({
 	chart: {
@@ -81,3 +84,14 @@ xhr.send(null);
 xhr.onloadend = function(){			//wait for xhr to load before creating chart or it will have no data
 	var myChart = new Highcharts.Chart(options);
 }
+
+var imgOptions = {
+	width: 300,
+	height: 300
+};
+
+function generateImgTag(base64png){
+	return '<img src="data:image/png;base64,' + base64png + '"alt="Fruits"/>'
+}
+
+server.render(imgOptions, options, generateImgTag);
