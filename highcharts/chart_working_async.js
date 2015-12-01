@@ -1,3 +1,7 @@
+
+<script src="http://code.highcharts.com/adapters/standalone-framework.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
 //global options
 Highcharts.setOptions({
 	chart: {
