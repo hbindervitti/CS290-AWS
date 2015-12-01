@@ -2,8 +2,9 @@ var express = require('express');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
-var chart = require('./chart_working_async.js');
 var Highcharts = require('highcharts');
+var chart = require('./chart_working_async.js');
+app = new Highcharts(3000);
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
