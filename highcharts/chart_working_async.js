@@ -1,15 +1,15 @@
 
 //global options
-// Highcharts.setOptions({
-	// chart: {
-		// backgroundColor: '#FCFFC5',
-		// borderWidth: 2,
-		// borderRadius: 20,
-		// plotBackgroundColor: 'rgba(255, 255, 255, .9)',
-		// plotShadow: true,
-		// plotBorderWidth: 1
-	// }
-// });	
+Highcharts.setOptions({
+	chart: {
+		backgroundColor: '#FCFFC5',
+		borderWidth: 2,
+		borderRadius: 20,
+		plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+		plotShadow: true,
+		plotBorderWidth: 1
+	}
+});	
 
 //set chart options
 var options = {

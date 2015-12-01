@@ -4,7 +4,6 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var chart = require('./chart_working_async.js');
 var Highcharts = require('highcharts');
-XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
