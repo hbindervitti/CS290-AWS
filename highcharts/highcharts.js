@@ -2,7 +2,6 @@ var express = require('express');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
-var credentials = require('./credentials.js');
 var request = require('request');
 
 app.engine('handlebars', handlebars.engine);
@@ -12,35 +11,14 @@ app.use(express.static('public'));
 
 app.get('/',function(req,res){
   var context = {};
-  request('http://api.openweathermap.org/data/2.5/weather?q=corvallis&APPID=' + credentials.owmKey, handleGet);
+  request('data.csv', handleGet);
 
   function handleGet(err, response, body){
-    if(!err && response.statusCode < 400){
-      context.owm = body;
-      request({
-        "url":"http://httpbin.org/post",
-        "method":"POST",
-        "headers":{
-          "Content-Type":"application/json"
-        },
-        "body":'{"foo":"bar","number":1}'
-      }, handlePost)
-    } else {
-      console.log(err);
-      console.log(response.statusCode);
-    }
+	  if(!err && response.statusCode < 400){
+		  
+	  }
   }
 
-  function handlePost(err, response, body){
-    if(!err && response.statusCode < 400){
-      context.httpbin = body;
-      res.render('home',context);
-    }else{
-      console.log(err);
-      console.log(response.statusCode);
-    }
-  }
-});
 
 app.use(function(req,res){
   res.status(404);
