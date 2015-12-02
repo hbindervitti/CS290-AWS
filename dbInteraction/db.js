@@ -1,12 +1,5 @@
 var express = require('express');
 var mysql = require('./dbconn.js');
-// var mysql = require('mysql');
-// var pool = mysql.createPool({
-  // host  : 'localhost',
-  // user  : 'student',
-  // password: 'default',
-  // database: 'student'
-// });
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
@@ -75,14 +68,17 @@ app.get('/safe-update',function(req,res,next){
     }
   });
 });
+
 app.get('/reset-table',function(req,res,next){
   var context = {};
-  mysql.pool.query("DROP TABLE IF EXISTS todo", function(err){
-    var createString = "CREATE TABLE todo(" +
-    "id INT PRIMARY KEY AUTO_INCREMENT," +
-    "name VARCHAR(255) NOT NULL," +
-    "done BOOLEAN," +
-    "due DATE)";
+  mysql.query("DROP TABLE IF EXISTS todo", function(err){
+    var createString = "CREATE TABLE workouts("+
+    "id INT PRIMARY KEY AUTO_INCREMENT,"+
+    "name VARCHAR(255) NOT NULL,"+
+    "reps INT,"+
+    "weight INT,"+
+    "date DATE,"+
+    "lbs BOOLEAN)";
     mysql.pool.query(createString, function(err){
       context.results = "Table reset";
       res.render('home',context);
