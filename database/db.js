@@ -27,7 +27,7 @@ app.get('/',function(req,res,next){
   }); 
 });
 
-app.get('/insert',function(req,res,next){
+app.get('/insert',function(req,res,next){		//http://52.27.157.90:3000/insert?c=hey
   var context = {};
   mysql.pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result){
     if(err){
@@ -38,6 +38,19 @@ app.get('/insert',function(req,res,next){
     res.render('home',context);
   });
 });
+
+app.get('/delete', function(req,res,next){
+	var context = {};
+	mysql.pool.query("DELETE FROM todo WHERE id=?", [req.query.id], function(err, result){
+		if(err){
+			next(err);
+			return;
+		}
+		context.results = "Deleted " + result.changedRows + " rows.";
+		res.render('home', context);
+	});	
+});
+
 app.get('/reset-table',function(req,res,next){
   var context = {};
   mysql.pool.query("DROP TABLE IF EXISTS todo", function(err){
