@@ -1,12 +1,5 @@
 <h1>Exercise Database</h1>
-<!--
 <p>{{results}}</p>
--->
-<ul>
-  {{#each dataList}}
-    <li>{{this.name}}: {{this.value}}
-  {{/each}}
-</ul>
 
 <table>
     <tr>
@@ -16,7 +9,7 @@
 		<th>Date</th>
 		<th>Lbs</th>
     </tr>
-	 {{#each dataList}}
+	 {{#each results}}
     <tr>
         <td>{{this.id}}</td>
 		<td>{{this.reps}}</td>
