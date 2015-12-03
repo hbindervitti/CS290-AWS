@@ -18,21 +18,14 @@ app.get('/',function(req,res,next){
     if(err){
       next(err);
       return;
-    }
-	
-		
-	//make result into array
-	var qParams = [];
-	for (var p in req.query){
-		qParams.push({'name':p,'value':req.query[p]});
-	}
-	var context = {};
-	context.dataList = qParams;
-	
-	
-	
-	
+    }	
     context.results = JSON.stringify(rows);
+	
+	var myData = [];
+	for(var i in rows){
+		myData.push({'name':i,'value':req.query[i]});
+	}
+	context.dataList = myData;
     res.render('home', context);
   }); 
 });
