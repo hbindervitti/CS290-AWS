@@ -19,10 +19,10 @@ app.get('/',function(req,res,next){
       next(err);
       return;
     }	
-    context.results = JSON.stringify(rows);
+    // context.results = JSON.stringify(rows);
 	
-	context.resultsJSON = rows;
-	console.log(context.resultsJSON);
+	context.results = rows;
+	// console.log(context.results);
     res.render('home', context);
   }); 
 });
