@@ -42,25 +42,6 @@ app.get('/insert',function(req,res,next){
     context.results = "Inserted id " + result.insertId;
     res.render('home',context);
   });
-  // mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, result){
-    // if(err){
-      // next(err);
-      // return;
-    // }
-    // if(result.length == 1){
-      // var curVals = result[0];
-      // mysql.pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-        // [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, req.query.date || curVals.date, req.query.lbs || curVals.lbs, req.query.id],
-        // function(err, result){
-        // if(err){
-          // next(err);
-          // return;
-        // }
-        // context.results = "Updated " + result.changedRows + " rows.";
-        // res.render('home',context);
-      // });
-    // }
-  // });
 });
 
 app.get('/delete', function(req,res,next){			//http://52.27.157.90:3000/delete?id=2

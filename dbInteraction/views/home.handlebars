@@ -1,2 +1,21 @@
-<h1>MySQL Results</h1>
+<h1>Exercise Database</h1>
 <p>{{results}}</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+		<th>Reps</th>
+		<th>Weight</th>
+		<th>Date</th>
+		<th>Lbs</th>
+    </tr>
+	 {{#each results}}
+    <tr>
+        <td>{{this.value}}</td>
+		<td>{{this.value}}</td>
+		<td>{{this.value}}</td>
+		<td>{{this.value}}</td>
+		<td>{{this.value}}</td>
+    </tr>
+     {{/each}}
+</table>
