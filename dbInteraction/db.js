@@ -20,14 +20,14 @@ app.get('/',function(req,res,next){
       return;
     }
 	
+		
 	//make result into array
 	var qParams = [];
 	for (var p in req.query){
-		qParams.push({'name':p,'value':req.query[p]})
+		qParams.push({'name':p,'value':req.query[p]});
 	}
 	var context = {};
 	context.dataList = qParams;
-	
 	
 	
 	
