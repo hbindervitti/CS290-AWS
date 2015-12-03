@@ -23,7 +23,9 @@ app.get('/',function(req,res,next){
 	
 	var myData = [];
 	for(var i in rows){
-		myData.push({'id':req.query[i].id}, {'name':req.query[i].name}, {'reps':req.query[i].reps}, {'weight':req.query[i].weight}, {'date':req.query[i].date}, {'lbs':req.query[i].lbs});
+		for(var p in req.query){
+			myData.push({'id':req.query[i].id}, {'name':req.query[i].name}, {'reps':req.query[i].reps}, {'weight':req.query[i].weight}, {'date':req.query[i].date}, {'lbs':req.query[i].lbs});
+		}
 	}
 	context.dataList = myData;
     res.render('home', context);
