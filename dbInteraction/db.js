@@ -29,9 +29,8 @@ app.get('/',function(req,res,next){
 	// }
 	// context.dataList = myData;
 	
-	context = rows;
-	console.log(context);
-	
+	context.resultsJSON = rows;
+	console.log(context.resultsJSON);
     res.render('home', context);
   }); 
 });
