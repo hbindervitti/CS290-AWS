@@ -19,7 +19,7 @@ app.get('/',function(req,res,next){
       next(err);
       return;
     }	
-    // context.results = JSON.stringify(rows);
+    context.debugString = JSON.stringify(rows);
 	
 	context.results = rows;
 	// console.log(context.results);
@@ -34,7 +34,7 @@ app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/inser
       next(err);
       return;
     }
-    // context.results = "Inserted id " + result.insertId;
+    context.debugString = "Inserted id " + result.insertId;
 	context.results = rows;
     res.render('home',context);
   });
@@ -47,7 +47,7 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    // context.results = "Inserted id " + result.insertId;
+    context.debugString = "Inserted id " + result.insertId;
 	
 	context.results = rows;
     res.render('home',context);
@@ -61,7 +61,7 @@ app.get('/delete', function(req,res,next){			//http://52.27.157.90:3000/delete?i
 			next(err);
 			return;
 		}
-		// context.results = "Deleted " + result.changedRows + " rows.";			//says deleted 0 rows when 1 deleted
+		context.debugString = "Deleted " + result.changedRows + " rows.";			//says deleted 0 rows when 1 deleted
 		context.results = rows;
 		res.render('home', context);
 	});	
@@ -85,7 +85,7 @@ app.get('/update',function(req,res,next){
           next(err);
           return;
         }
-        // context.results = "Updated " + result.changedRows + " rows.";		
+        context.debugString = "Updated " + result.changedRows + " rows.";		
 		context.results = rows;
         res.render('home',context);
       });
