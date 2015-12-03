@@ -1,22 +1,20 @@
-
-	<h1>Exercise Database</h1>
-	<p>{{results}}</p>
-
-	<table  id="exerciseTable">
-		<tr>
-			<th>Name</th>
-			<th>Reps</th>
-			<th>Weight</th>
-			<th>Date</th>
-			<th>Lbs</th>
-		</tr>
-		 {{#each resultsJSON}}
-		<tr>
-			<td>{{this.id}}</td>
-			<td>{{this.reps}}</td>
-			<td>{{this.weight}}</td>
-			<td>{{this.date}}</td>
-			<td>{{this.lbs}}</td>
-		</tr>
-		 {{/each}}
-	</table>
+<h1>Exercise Database</h1>
+<link rel=StyleSheet href="style.css" type="text/css">
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Reps</th>
+		<th>Weight</th>
+		<th>Date</th>
+		<th>Lbs</th>
+	</tr>
+	 {{#each results}}
+	<tr>
+		<td>{{this.name}}</td>
+		<td>{{this.reps}}</td>
+		<td>{{this.weight}}</td>
+		<td>{{this.date}}</td>
+		<td>{{this.lbs}}</td>
+	</tr>
+	 {{/each}}
+</table>
