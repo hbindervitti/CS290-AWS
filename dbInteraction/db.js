@@ -15,12 +15,11 @@ app.get('/',function(req,res,next){
       next(err);
       return;
     }
-    context.results = JSON.stringify(rows);
 	
 	//make result into array
 	var qParams = [];
 	for (var p in req.query){
-	qParams.push({'name':p,'value':req.query[p]})
+		qParams.push({'name':p,'value':req.query[p]})
 	}
 	var context = {};
 	context.dataList = qParams;
@@ -29,6 +28,7 @@ app.get('/',function(req,res,next){
 	
 	
 	
+    context.results = JSON.stringify(rows);
     res.render('home', context);
   }); 
 });
