@@ -21,14 +21,6 @@ app.get('/',function(req,res,next){
     }	
     context.results = JSON.stringify(rows);
 	
-	// var myData = [];
-	// for(var i in rows){
-		// for(var p in req.query){
-			// myData.push({'id':req.query[i].id}, {'name':req.query[i].name}, {'reps':req.query[i].reps}, {'weight':req.query[i].weight}, {'date':req.query[i].date}, {'lbs':req.query[i].lbs});
-		// }
-	// }
-	// context.dataList = myData;
-	
 	context.resultsJSON = rows;
 	console.log(context.resultsJSON);
     res.render('home', context);

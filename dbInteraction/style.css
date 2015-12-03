@@ -1,0 +1,21 @@
+#exerciseTable{
+	
+	
+}
+
+tbody th{
+	font-weight:normal;
+	font-style:italic;
+	text-align:center;
+}
+
+table, td, th{
+	border: 1px solid black;
+	border-collapse: separate;
+}
+tbody tr:nth-of-type(odd){
+	background:#FFFFCC;
+}
+tbody tr:nth-of-type(even){
+	background:#E5CCFF;
+}
