@@ -34,7 +34,8 @@ app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/inser
       next(err);
       return;
     }
-    context.results = "Inserted id " + result.insertId;
+    // context.results = "Inserted id " + result.insertId;
+	context.results = rows;
     res.render('home',context);
   });
 });
@@ -46,7 +47,9 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    context.results = "Inserted id " + result.insertId;
+    // context.results = "Inserted id " + result.insertId;
+	
+	context.results = rows;
     res.render('home',context);
   });
 });
@@ -58,7 +61,8 @@ app.get('/delete', function(req,res,next){			//http://52.27.157.90:3000/delete?i
 			next(err);
 			return;
 		}
-		context.results = "Deleted " + result.changedRows + " rows.";			//says deleted 0 rows when 1 deleted
+		// context.results = "Deleted " + result.changedRows + " rows.";			//says deleted 0 rows when 1 deleted
+		context.results = rows;
 		res.render('home', context);
 	});	
 });
@@ -81,7 +85,8 @@ app.get('/update',function(req,res,next){
           next(err);
           return;
         }
-        context.results = "Updated " + result.changedRows + " rows.";
+        // context.results = "Updated " + result.changedRows + " rows.";		
+		context.results = rows;
         res.render('home',context);
       });
     }
@@ -103,19 +108,6 @@ app.get('/reset-table',function(req,res,next){
       res.render('home',context);
     })
   });
-});
-
-
-app.get('/',function(req,res,next){
-  var context = {};
-  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }
-    context.results = JSON.stringify(rows);
-    res.render('home', context);
-  }); 
 });
 
 

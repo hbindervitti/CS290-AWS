@@ -2,6 +2,22 @@
 <html>
   <head>
     <script>
+	
+	var req = new XMLHttpRequest();
+	document.addEventListener('DOMContentLoaded', bindButtons);
+	
+	function bindButtons(){
+		document.getElementById('insert').addEventListener('click', function(event){
+			
+		}
+	}
+	
+	
+		var id=document.getElementById("newExercise");
+	
+	
+	
+	
         var apiKey = 'AIzaSyAh2sUzWPm-pRQCbgyZijqWcKGFcoXeK2o';
 
       document.addEventListener('DOMContentLoaded', bindButtons);
@@ -23,7 +39,7 @@
     </script>
   </head>
   <body>
-    <form>
+    <form id="newExercise">
       <fieldset>
 		<legend>Enter an exercise</legend>
         <legend>Exercise Name</legend>
@@ -44,8 +60,8 @@
 		
 		<legend>Unit</legend>
         <label for="lbs"></label>
-        <input type="radio" name="lbs" id="1">lbs
-		<input type="radio" name="lbs" id="0">kgs
+        <input type="radio" id="lbs" value="1">lbs
+		<input type="radio" id="lbs" value="0">kgs
 		
         <p><input type="submit" id="insert" value="Add Exercise">
       </fieldset>
