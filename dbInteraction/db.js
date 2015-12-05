@@ -18,17 +18,15 @@ app.get('/',function(req,res,next){
     if(err){
       next(err);
       return;
-    }
-
+    }	
+    context.debugString = JSON.stringify(rows);
+	
+	context.results = rows;
 	mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
       next(err);
       return;
     }	
-	
-    context.debugString = JSON.stringify(rows);
-	
-	context.results = rows;
 	// console.log(context.results);
     res.render('home', context);
   }); 
