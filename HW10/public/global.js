@@ -1,4 +1,4 @@
-// alert("in global.js");
+alert("in global.js");
 
 //DOM readyState
 document.addEventListener('DOMContentLoaded', function(){			
