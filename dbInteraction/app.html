@@ -3,21 +3,53 @@
   <head>
     <script>
 	
-	var req = new XMLHttpRequest();
+	
 	document.addEventListener('DOMContentLoaded', bindButtons);
 	
 	function bindButtons(){
+		var req = new XMLHttpRequest();
+		var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
 		document.getElementById('insert').addEventListener('click', function(event){
-			
-		}
+			payload.name = document.getElementById('name').value;
+			payload.reps = document.getElementById('reps').value;
+			payload.weight = document.getElementById('weight').value;
+			payload.date = document.getElementById('date').value;
+			var radios = document.getElementsByName("lbs");
+			for(var i = 0; i < radios.length; i++){
+				if(radios[i].checked){
+					payload.lbs = radios[i].value;
+				}
+				break;
+			}
+		});
+		console.log(payload);			// for debug
+		req.open('GET', 'http://52.27.157.90:3000/insert?' + payload, true);
+		req.addEventListener('load', function(){
+			if(req.status >=200 && req.status < 400){
+				var response = JSON.parse(req.responseText);
+				console.log(response);
+				document.getElementById('id').value=response.id;
+				document.getElementById('name').value=response.name;
+				document.getElementById('reps').value=response.reps;
+				document.getElementById('weight').value=response.weight;
+				document.getElementById('date').value=response.date;
+				var radios = document.getElementsByName("lbs");
+				for(var i = 0; i < radios.length; i++){
+					if(radios[i].checked){
+						radios[i].value = response.lbs;
+					}
+					break;
+				}
+				
+			}
+			event.preventDefault();
+		});
 	}
 	
 	
-		var id=document.getElementById("newExercise");
+		
 	
-	
-	
-	
+	/*
         var apiKey = 'AIzaSyAh2sUzWPm-pRQCbgyZijqWcKGFcoXeK2o';
 
       document.addEventListener('DOMContentLoaded', bindButtons);
@@ -35,37 +67,33 @@
           document.getElementById('shortUrl').textContent = response.id;
           event.preventDefault();
         })
-      }
+      } */
     </script>
   </head>
   <body>
     <form id="newExercise">
       <fieldset>
-		<legend>Enter an exercise</legend>
+		<legend>Add an exercise</legend>
         <legend>Exercise Name</legend>
-        <label for="name"></label>
         <input type="text" name="name" id="name">
 		
 		<legend>Repetitions</legend>
-        <label for="reps"></label>
-        <input type="text" name="reps" id="reps">
+        <input type="number" name="reps" id="reps">
 		
 		<legend>Weight</legend>
-        <label for="weight"></label>
-        <input type="text" name="weight" id="weight">
+        <input type="number" name="weight" id="weight">
 		
 		<legend>Date</legend>
-        <label for="date"></label>
         <input type="date" name="date" id="date">
 		
 		<legend>Unit</legend>
-        <label for="lbs"></label>
-        <input type="radio" id="lbs" value="1">lbs
-		<input type="radio" id="lbs" value="0">kgs
+        <input type="radio" id="lbs" name = "lbs" value="1">lbs
+		<input type="radio" id="lbs" name = "lbs" value="0">kgs
 		
         <p><input type="submit" id="insert" value="Add Exercise">
       </fieldset>
     </form>
+	
     <div>
       <h2>Result</h2>
       <ul>
@@ -73,5 +101,6 @@
         <li><span>Short URL:</span><span id="shortUrl"></span></li>
       </ul>
     </div>
+	
   </body>
 </html>
