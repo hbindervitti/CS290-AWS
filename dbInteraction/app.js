@@ -34,11 +34,6 @@ app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/inser
       next(err);
       return;
     }
-	mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
     context.debugString = "Inserted id " + result.insertId;
 	// context.results = rows;
     res.render('home',context);
