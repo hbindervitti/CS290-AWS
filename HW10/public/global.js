@@ -1,4 +1,4 @@
-var dataList = [];
+
 
 //DOM readyState
 document.addEventListener('DOMContentLoaded', function(){
@@ -24,8 +24,5 @@ function populateTable(){
 			
 		}
 		event.preventDefault();
-	})
-	
-	
-	
-};
+	});
+}
