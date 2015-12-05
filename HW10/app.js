@@ -25,6 +25,7 @@ app.get('/',function(req,res,next){
 	context.results = rows;
 	// console.log(context.results);
     res.render('home', context);
+	res.send('/test.html');
   }); 
 });
 
@@ -37,8 +38,7 @@ app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/inser
     }
     context.debugString = "Inserted id " + result.insertId;
 	// context.results = rows;
-    // res.render('home',context);
-	res.sendfile('/test.html');
+    res.render('home',context);
   });
 });
 
