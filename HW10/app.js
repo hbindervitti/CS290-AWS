@@ -38,7 +38,7 @@ app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/inser
     context.debugString = "Inserted id " + result.insertId;
 	// context.results = rows;
     // res.render('home',context);
-	res.sendfile(__dirname + '/test.html');
+	res.sendfile('/test.html');
   });
 });
 
