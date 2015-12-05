@@ -5,11 +5,29 @@
 
 <head>
     <title></title>
-	<script src="global.js"></script>
+	<script language="javascript" type="text/javascript" >
+		var req = new XMLHttpRequest();
+		
+		function loadData(){
+			req.onreadystatechange = function(){
+				if(req.readystate == 4 && req.status == 200){
+					document.getElementById('stuff').innerHTML = req.responseText;
+				}else{
+					document.getElementById('stuff').innerHTML = 'waiting';
+				}
+			}
+		}
+		req.open("GET", "http://localhost:3000/", true);
+		req.send();
+		
+	</script>
 </head>
 
 <body>
-	<div id="stuff"></div>
+	<div id="stuff">
+	
+	</div>
+	<br /><input type="button" value="load" onclick="loadData()"/>
 </body>
 
 </html>

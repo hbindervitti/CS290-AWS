@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 	}
 
-	req.open("GET", "http://52.27.157.90:3000/", true);
+	req.open("GET", "http://localhost:3000/", true);
 	req.send();
 	
 });
