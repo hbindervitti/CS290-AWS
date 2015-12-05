@@ -1,4 +1,4 @@
-
+alert("in global.js");
 
 //DOM readyState
 document.addEventListener('DOMContentLoaded', function(){
@@ -26,3 +26,4 @@ function populateTable(){
 		event.preventDefault();
 	});
 }
+

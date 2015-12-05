@@ -1,7 +1,6 @@
 <h1>Exercise Database</h1>
 <p>{{debugString}}</p>
 
- <script src"/global.js"></script>
 
 
 <form id="newExercise">
@@ -36,6 +35,15 @@
 		<th>Date</th>
 		<th>Lbs</th>
 	</tr>
+	 {{#each results}}
+	<tr>
+		<td>{{this.name}}</td>
+		<td>{{this.reps}}</td>
+		<td>{{this.weight}}</td>
+		<td>{{this.date}}</td>
+		<td>{{this.lbs}}</td>
+	</tr>
+	 {{/each}}
 </table>
 
 
