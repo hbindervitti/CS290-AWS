@@ -11,18 +11,18 @@ function populateTable(){
 	req.open('GET', 'http://52.27.157.90:3000/api/workout/', true);
 	req.setRequestHeader("Content-type", "application/json");
 	req.send(null);
-	var body = document.getElementsByTagName("body")[0];
-	var temp = body.getElementById("tbl");
-	temp.innerHTML = "";
 	req.addEventListener('load', function(event){
 		if(req.status >=200 && req.status < 400){
 			var response = JSON.parse(req.responseText);
 			console.log(response);
 			//create table
-			// var body = document.getElementsByTagName("body")[0];
-			// var temp = body.getElementById("tbl");
-			// temp.innerHTML = "";
-			var table = temp.createElement("table");
+			var body = document.getElementsByTagName("body")[0];
+			//delete old table
+			var tbl = document.getElementById('ExerciseTable');
+			if(tbl) tbl.parentNode.removeChild(tbl);
+			
+			var table = document.createElement("table");
+			table.setAttribute('id', 'ExerciseTable');
 			var tblBody = document.createElement("tbody");			
 			//create header
 			var row = document.createElement("tr");
