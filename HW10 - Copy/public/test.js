@@ -109,6 +109,7 @@ function deleteRow(rID){
 			var tbl = document.getElementById(rID);
 			var tblBody = tbl.getElementsByTagName("tbody")[0];
 			for (var i = 0, row; row = table.rows[i]; i++) {
+				alert(row);
 			   if(row == rID){
 				   	tbl.deleteRow(row);			   
 			   }   
