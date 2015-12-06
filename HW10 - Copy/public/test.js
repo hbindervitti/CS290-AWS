@@ -1,7 +1,6 @@
 //DOM readyState
-document.addEventListener('DOMContentLoaded', function(event){			
+document.addEventListener('DOMContentLoaded', bindButtons, function(event){			
 	populateTable();	
-	bindButtons();
 });
 
 
@@ -150,5 +149,5 @@ document.getElementById('insert').addEventListener('click', function(event){
 	})
 	req.send(JSON.stringify(payload));
 	event.preventDefault();
-  })
+  });
 )
