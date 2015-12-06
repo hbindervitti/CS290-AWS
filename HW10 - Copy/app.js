@@ -25,16 +25,8 @@ app.get('/api/',function(req,res,next){
 
 app.get('/',function(req,res,next){
   var context = {};
-  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }	
-    context.debugString = JSON.stringify(rows);
-	
-	context.results = rows;
-	// console.log(context.results);
-    res.render('home', context);
+ 
+    res.render('home');
 	 // res.send(JSON.stringify(rows));
   }); 
 });
