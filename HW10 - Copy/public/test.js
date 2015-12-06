@@ -146,7 +146,7 @@ function editRow(rID){
 			legend.appendChild(text);
 			f.appendChild(legend);
 			var date = document.createElement("input"); 
-			date.setAttribute('type',"date");
+			date.setAttribute('type',"text");		//try as text
 			date.setAttribute('id',"date");
 			f.appendChild(date);
 			//lbs or kgs
@@ -167,7 +167,7 @@ function editRow(rID){
 			kgs.setAttribute('type',"radio");
 			kgs.setAttribute('id',"lbs");
 			kgs.setAttribute('value', "0");
-			var text = document.createTextNode("Kgs");		//text for radio buttons not showing
+			var text = document.createTextNode("Kgs");		//text for radio buttons not showing - try just adding a next node to form instead of input
 			kgs.appendChild(text);
 			f.appendChild(kgs);
 			var linebreak = document.createElement("br");
@@ -187,7 +187,7 @@ function editRow(rID){
 			weight.setAttribute('value', response[0].weight);
 			var exerciseDate = (response[0].date).substring(0, 9);
 			console.log(date);
-			date.setAttribute('value', Date.parse(exerciseDate));		//not working yet
+			date.setAttribute('value', exerciseDate);		//not working yet
 			if(response[0].lbs == 1){
 				lbs.setAttribute('checked', 'checked');
 			}else if(response[0].lbs == 0){
