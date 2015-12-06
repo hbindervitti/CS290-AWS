@@ -185,7 +185,7 @@ function editRow(rID){
 			ename.setAttribute('value', response[0].name);
 			reps.setAttribute('value', response[0].reps);
 			weight.setAttribute('value', response[0].weight);
-			date.setAttribute('value', response[0].date);
+			date.setAttribute('value', date.Parse(response[0].date));
 			
 			
 		}
