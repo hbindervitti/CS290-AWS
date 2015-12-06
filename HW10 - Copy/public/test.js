@@ -259,14 +259,9 @@ document.getElementById('insert').addEventListener('click', function(event){
 	var radios = document.getElementsByName("lbs");
 	for(var i = 0; i < radios.length; i++){
 		if(radios[i].checked){
-			alert(radios[i].value);		//for debug
-			if(radios[i].value == 0){
-				payload.lbs = '0';
-			}else{
-				payload.lbs = radios[i].value;
-			}
+			payload.lbs = radios[i].value;
+			break;
 		}
-		break;
 	}
 	
 	req.open('POST', 'http://52.27.157.90:3000/api/workout/', true);
