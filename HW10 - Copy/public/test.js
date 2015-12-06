@@ -72,9 +72,9 @@ function populateTable(){
 				row.appendChild(cell);
 				
 				//add delete and edit buttons with id = response[item].id
-				var deleteBtn = createButton('Delete', response[item].id);
+				// var deleteBtn = createButton('Delete', response[item].id);
 				var cell = document.createElement("td");
-				var text = document.createTextNode(deleteBtn);
+				cell.innerHTML = '<input id=' + response[item].id + ' type="button" value="Delete" />';
 				cell.appendChild(text);
 				row.appendChild(cell);
 				
