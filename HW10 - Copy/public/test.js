@@ -120,7 +120,7 @@ function editRow(rID){
 			f.appendChild(legend);
 			var ename = document.createElement("input"); 
 			ename.setAttribute('type',"text");
-			ename.setAttribute('id',"name");
+			ename.setAttribute('id',"uname");
 			f.appendChild(ename);
 			//reps
 			var legend = document.createElement("legend");
@@ -129,7 +129,7 @@ function editRow(rID){
 			f.appendChild(legend);
 			var reps = document.createElement("input"); 
 			reps.setAttribute('type',"number");
-			reps.setAttribute('id',"reps");
+			reps.setAttribute('id',"ureps");
 			f.appendChild(reps);
 			//weight
 			var legend = document.createElement("legend");
@@ -138,7 +138,7 @@ function editRow(rID){
 			f.appendChild(legend);
 			var weight = document.createElement("input"); 
 			weight.setAttribute('type',"number");
-			weight.setAttribute('id',"weight");
+			weight.setAttribute('id',"uweight");
 			f.appendChild(weight);
 			//date
 			var legend = document.createElement("legend");
@@ -147,7 +147,7 @@ function editRow(rID){
 			f.appendChild(legend);
 			var date = document.createElement("input"); 
 			date.setAttribute('type',"text");
-			date.setAttribute('id',"date");
+			date.setAttribute('id',"udate");
 			f.appendChild(date);
 			//lbs or kgs
 			var legend = document.createElement("legend");
@@ -156,7 +156,7 @@ function editRow(rID){
 			f.appendChild(legend);
 			var lbs = document.createElement("input"); 
 			lbs.setAttribute('type',"radio");
-			lbs.setAttribute('id',"lbs");
+			lbs.setAttribute('id',"ulbs");
 			lbs.setAttribute('value', "1");
 			var text = document.createTextNode("Lbs");
 			lbs.appendChild(text);
@@ -165,7 +165,7 @@ function editRow(rID){
 			f.appendChild(linebreak);
 			var kgs = document.createElement("input"); 
 			kgs.setAttribute('type',"radio");
-			kgs.setAttribute('id',"lbs");
+			kgs.setAttribute('id',"ulbs");
 			kgs.setAttribute('value', "0");
 			var text = document.createTextNode("Kgs");		//text for radio buttons not showing - try just adding a next node to form instead of input
 			kgs.appendChild(text);
@@ -201,11 +201,11 @@ function editRow(rID){
 function updateRow(rID){
 	var req = new XMLHttpRequest();
 	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
-	payload.name = document.getElementById('name').value;
-	payload.reps = document.getElementById('reps').value;
-	payload.weight = document.getElementById('weight').value;
-	payload.date = document.getElementById('date').value;
-	var radios = document.getElementsByName("lbs");
+	payload.name = document.getElementById('uname').value;
+	payload.reps = document.getElementById('ureps').value;
+	payload.weight = document.getElementById('uweight').value;
+	payload.date = document.getElementById('udate').value;
+	var radios = document.getElementsByName("ulbs");
 	for(var i = 0; i < radios.length; i++){
 		if(radios[i].checked){
 			payload.lbs = radios[i].value;
