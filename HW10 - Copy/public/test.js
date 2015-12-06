@@ -11,7 +11,7 @@ function populateTable(){
 	var req = new XMLHttpRequest();
 	var payload = {name:name, reps:reps, weight:weight, date:date, lbs:lbs};
 	
-	req.open('GET', 'http://52.27.157.90:3000/', true);
+	req.open('GET', 'http://52.27.157.90:3000/api/', true);
 	req.setRequestHeader("Content-type", "application/json");
 	req.send(null);
 	req.addEventListener('load', function(event){
