@@ -258,6 +258,9 @@ function bindButtons(){
 document.getElementById('insert').addEventListener('click', function(event){
     var req = new XMLHttpRequest();
 	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
+	if(document.getElementById('name').value == ""){
+		break;
+	}
 	payload.name = document.getElementById('name').value;
 	payload.reps = document.getElementById('reps').value;
 	payload.weight = document.getElementById('weight').value;
