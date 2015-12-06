@@ -51,18 +51,23 @@ var lbs = document.createElement("input");
 lbs.setAttribute('type',"radio");
 lbs.setAttribute('id',"lbs");
 lbs.setAttribute('value', "1");
-var text = document.createTextNode("Lbs");
-lbs.appendChild(text);
+// var text = document.createTextNode("Lbs");
+// lbs.appendChild(text);
 f.appendChild(lbs);
+var text = document.createTextNode("Lbs");
+f.appendChild(text);		//lbs button label
+
 var linebreak = document.createElement("br");
 f.appendChild(linebreak);
 var kgs = document.createElement("input"); 
 kgs.setAttribute('type',"radio");
 kgs.setAttribute('id',"lbs");
 kgs.setAttribute('value', "0");
-var text = document.createTextNode("Kgs");
-kgs.appendChild(text);
+// var text = document.createTextNode("Kgs");
+// kgs.appendChild(text);
 f.appendChild(kgs);
+var text = document.createTextNode("Kgs");
+f.appendChild(text);		//lbs button label
 
 
 var linebreak = document.createElement("br");
