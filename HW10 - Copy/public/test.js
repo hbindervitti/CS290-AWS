@@ -185,7 +185,9 @@ function editRow(rID){
 			ename.setAttribute('value', response[0].name);
 			reps.setAttribute('value', response[0].reps);
 			weight.setAttribute('value', response[0].weight);
-			date.setAttribute('value', Date.parse(response[0].date));		//not working yet
+			var exerciseDate = (response[0].date).substring(0, 9);
+			console.log(date);
+			date.setAttribute('value', Date.parse(exerciseDate));		//not working yet
 			if(response[0].lbs == 1){
 				lbs.setAttribute('checked', 'checked');
 			}else if(response[0].lbs == 0){
