@@ -18,8 +18,8 @@ function populateTable(){
 			//create table
 			var body = document.getElementsByTagName("body")[0];
 			//delete old table
-			var tbl = document.getElementById('ExerciseTable');
-			if(tbl) tbl.parentNode.removeChild(tbl);
+			// var tbl = document.getElementById('ExerciseTable');
+			// if(tbl) tbl.parentNode.removeChild(tbl);
 			
 			var table = document.createElement("table");
 			table.setAttribute('id', 'ExerciseTable');
@@ -113,9 +113,12 @@ function deleteRow(rID){
 			// var temp = document.getElementById("tbl");
 			// temp.innerHTML = "";
 			// tbl.parentNode.removeChild(tbl);
+			//delete old table
+			var tbl = document.getElementById('ExerciseTable');
+			if(tbl) tbl.parentNode.removeChild(tbl);
 			populateTable();
 		}
-		// event.preventDefault();
+		event.preventDefault();
 	})
 	
 }
