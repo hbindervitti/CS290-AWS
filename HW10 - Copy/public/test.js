@@ -17,7 +17,8 @@ function populateTable(){
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
-			
+			var temp = body.getElementById("tbl");
+			temp.innerHTML = "";
 			var table = document.createElement("table");
 			var tblBody = document.createElement("tbody");			
 			//create header
@@ -106,8 +107,8 @@ function deleteRow(rID){
 		if(req.status >=200 && req.status < 400){
 			// var body = document.getElementsByTagName("body")[0];
 			// var tbl = body.getElementsByTagName("table")[0];
-			var temp = document.getElementById("tbl");
-			temp.innerHTML = "";
+			// var temp = document.getElementById("tbl");
+			// temp.innerHTML = "";
 			// tbl.parentNode.removeChild(tbl);
 			populateTable();
 		}
