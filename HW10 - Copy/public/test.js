@@ -167,7 +167,7 @@ function editRow(rID){
 			kgs.setAttribute('type',"radio");
 			kgs.setAttribute('id',"lbs");
 			kgs.setAttribute('value', "0");
-			var text = document.createTextNode("Kgs");
+			var text = document.createTextNode("Kgs");		//text for radio buttons not showing
 			kgs.appendChild(text);
 			f.appendChild(kgs);
 			var linebreak = document.createElement("br");
@@ -185,7 +185,12 @@ function editRow(rID){
 			ename.setAttribute('value', response[0].name);
 			reps.setAttribute('value', response[0].reps);
 			weight.setAttribute('value', response[0].weight);
-			date.setAttribute('value', Date.parse(response[0].date));
+			date.setAttribute('value', Date.parse(response[0].date));		//not working yet
+			if(response[0].lbs == 1){
+				lbs.setAttribute('checked', 'checked');
+			}else if(response[0].lbs == 0){
+				kgs.setAttribute('checked', 'checked');
+			}
 			
 			
 		}
