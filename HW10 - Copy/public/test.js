@@ -105,16 +105,15 @@ function editRow(rID){
 			var response = JSON.parse(req.responseText);
 			console.log(response);			//for debug!
 			
-			//create form and populate with values from json string
+			//create form 
 			var f = document.createElement("form");
 			f.setAttribute('id', 'editForm');
-
 			//add heading
 			var heading = document.createElement("h2");
 			var text = document.createTextNode("Edit Record");
 			heading.appendChild(text);
 			f.appendChild(heading);
-
+			//name
 			var legend = document.createElement("legend");
 			var text = document.createTextNode("Name");
 			legend.appendChild(text);
@@ -123,7 +122,7 @@ function editRow(rID){
 			ename.setAttribute('type',"text");
 			ename.setAttribute('id',"name");
 			f.appendChild(ename);
-
+			//reps
 			var legend = document.createElement("legend");
 			var text = document.createTextNode("Repetitions");
 			legend.appendChild(text);
@@ -132,7 +131,7 @@ function editRow(rID){
 			reps.setAttribute('type',"number");
 			reps.setAttribute('id',"reps");
 			f.appendChild(reps);
-
+			//weight
 			var legend = document.createElement("legend");
 			var text = document.createTextNode("Weight");
 			legend.appendChild(text);
@@ -141,7 +140,7 @@ function editRow(rID){
 			weight.setAttribute('type',"number");
 			weight.setAttribute('id',"weight");
 			f.appendChild(weight);
-
+			//date
 			var legend = document.createElement("legend");
 			var text = document.createTextNode("Date");
 			legend.appendChild(text);
@@ -150,7 +149,7 @@ function editRow(rID){
 			date.setAttribute('type',"date");
 			date.setAttribute('id',"date");
 			f.appendChild(date);
-
+			//lbs or kgs
 			var legend = document.createElement("legend");
 			var text = document.createTextNode("Lbs");
 			legend.appendChild(text);
@@ -171,20 +170,19 @@ function editRow(rID){
 			var text = document.createTextNode("Kgs");
 			kgs.appendChild(text);
 			f.appendChild(kgs);
-
-
 			var linebreak = document.createElement("br");
 			f.appendChild(linebreak);
 			//submit button
 			var s = document.createElement("input"); 
 			s.setAttribute('type',"submit");
 			s.setAttribute('value',"Update");
-			// s.setAttribute('onclick', 'updateRow('+ rID +')');
+			s.setAttribute('onclick', 'updateRow('+ rID +')');
 			f.appendChild(s);
-
-
 			document.getElementsByTagName('body')[0].appendChild(f);
+			//end create form
 			
+			//populate form with values from json string
+			console.log("response text: " + response[0].id + " " + response[0].name + " " + response[0].reps);
 			
 		}
 		event.preventDefault;
