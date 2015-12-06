@@ -151,4 +151,4 @@ document.getElementById('insert').addEventListener('click', function(event){
 	req.send(JSON.stringify(payload));
 	event.preventDefault();
   });
-})
+}
