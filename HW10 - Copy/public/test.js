@@ -106,15 +106,8 @@ function deleteRow(rID){
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
 			var body = document.getElementsByTagName("body")[0];
-			var tbl = document.getElementById(rID);
-			var tblBody = tbl.getElementsByTagName("tbody")[0];
-			for (var i = 0, row; row = table.rows[i]; i++) {
-				alert(row);
-			   if(row == rID){
-				   	tbl.deleteRow(row);			   
-			   }   
-			}
-			
+			var tbl = body.getElementsByTagName("table")[0];
+			tbl.deleteRow(rID);		
 		}
 		event.preventDefault();
 	})
