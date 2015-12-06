@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(event){
 //fill table with data
 function populateTable(){
 	var req = new XMLHttpRequest();
-	var payload = {name:name, reps:reps, weight:weight, date:date, lbs:lbs};
+	// var payload = {name:name, reps:reps, weight:weight, date:date, lbs:lbs};
 	
 	req.open('GET', 'http://52.27.157.90:3000/api/workout/', true);
 	req.setRequestHeader("Content-type", "application/json");
@@ -19,7 +19,6 @@ function populateTable(){
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
-			body.innerHTML = "";
 			var table = document.createElement("table");
 			var tblBody = document.createElement("tbody");			
 			//create header
