@@ -13,7 +13,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-app.get('/api/',function(req,res,next){
+app.get('/api/workout/',function(req,res,next){
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
@@ -30,20 +30,7 @@ app.get('/',function(req,res,next){
 	res.sendFile('public/table.html', {root: __dirname })
 });
 
-app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/insert?c=hey
-  var context = {};
-  mysql.pool.query("INSERT INTO workouts (`name`) VALUES (?,?)", [req.query.name], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    context.debugString = "Inserted id " + result.insertId;
-	// context.results = rows;
-    res.render('home',context);
-  });
-});
-
-app.get('/insert',function(req,res,next){
+app.post('/api/workout',function(req,res,next){
   var context = {};
   mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
