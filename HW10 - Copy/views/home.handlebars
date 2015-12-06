@@ -1,20 +1,7 @@
-Handlebars.registerHelper("printItems", function(results) {
-  var html = "<ul>";
-  items.forEach(function(entry) {
-    html += "<li>" + entry + "</li>";
-  });
-  html += "</ul>";
-  return html;
-});
 
-
-</script>
 
 <h1>Exercise Database</h1>
 <p>{{debugString}}</p>
-<div id="stuff">
-	{{printItems results}}
-</div>
 
 
 <form id="newExercise">
