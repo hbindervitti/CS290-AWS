@@ -1,6 +1,7 @@
 //DOM readyState
 document.addEventListener('DOMContentLoaded', function(event){			
 	populateTable();	
+	bindButtons();
 });
 
 
@@ -124,20 +125,21 @@ function populateTable(){
 		// event.preventDefault();
 // }
 
+function bindButtons(
 document.getElementById('insert').addEventListener('click', function(event){
     var req = new XMLHttpRequest();
 	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
 	payload.name = document.getElementById('name').value;
-		payload.reps = document.getElementById('reps').value;
-		payload.weight = document.getElementById('weight').value;
-		payload.date = document.getElementById('date').value;
-		var radios = document.getElementsByName("lbs");
-		for(var i = 0; i < radios.length; i++){
-			if(radios[i].checked){
-				payload.lbs = radios[i].value;
-			}
-			break;
+	payload.reps = document.getElementById('reps').value;
+	payload.weight = document.getElementById('weight').value;
+	payload.date = document.getElementById('date').value;
+	var radios = document.getElementsByName("lbs");
+	for(var i = 0; i < radios.length; i++){
+		if(radios[i].checked){
+			payload.lbs = radios[i].value;
 		}
+		break;
+	}
 	
 	req.open('POST', 'http://52.27.157.90:3000/api/workout/' + payload, true);
 	req.setRequestHeader('Content-Type', 'application/json');
@@ -149,3 +151,4 @@ document.getElementById('insert').addEventListener('click', function(event){
 	req.send(JSON.stringify(payload));
 	event.preventDefault();
   });
+)
