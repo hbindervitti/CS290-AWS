@@ -119,8 +119,8 @@ document.getElementById('insert').addEventListener('click', function(event){
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
 			populateTable();
-			event.preventDefault();
 		}
+		event.preventDefault();
 	})
   });
 }
