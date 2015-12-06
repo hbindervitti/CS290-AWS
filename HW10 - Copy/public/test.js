@@ -95,6 +95,20 @@ function populateTable(){
 	});
 }
 
+function editRow(rID){
+	var req = new XMLHttpRequest();	
+	req.open('GET', 'http://52.27.157.90:3000/api/workout/' + rID, true);
+	req.setRequestHeader("Content-type", "application/json");
+	req.send(null);
+	req.addEventListener('load', function(event){
+		if(req.status >=200 && req.status < 400){
+			var response = JSON.parse(req.responseText);
+			console.log(response);
+		}
+		event.preventDefault;
+	});
+}
+
 function deleteRow(rID){
     var req = new XMLHttpRequest();
 	req.open('DELETE', 'http://52.27.157.90:3000/api/workout/' + rID, true);
