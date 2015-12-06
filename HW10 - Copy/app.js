@@ -36,11 +36,10 @@ app.post('/api/workout/',function(req,res,next){
       next(err);
       return;
     }
-	// req.send();
   });
 });
 
-app.get('/delete', function(req,res,next){			//http://52.27.157.90:3000/delete?id=2
+app.get('/api/workout/', function(req,res,next){			//http://52.27.157.90:3000/delete?id=2
 	var context = {};
 	mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
 		if(err){

@@ -80,10 +80,10 @@ function populateTable(){
 				
 				//add delete and edit buttons 
 				var cell = document.createElement("td");
-				cell.innerHTML = '<input id=' + response[item].id + ' type="submit" value="Delete" />';
+				cell.innerHTML = '<input id="delete" name=' + response[item].id + ' type="submit" value="Delete" />';
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				cell.innerHTML = '<input id=' + response[item].id + ' type="submit" value="Edit" />';
+				cell.innerHTML = '<input id="edit" name=' + response[item].id + ' type="submit" value="Edit" />';
 				row.appendChild(cell);
 				
 				tblBody.appendChild(row);
@@ -123,6 +123,25 @@ document.getElementById('insert').addEventListener('click', function(event){
 		event.preventDefault();
 	})
   });
+  
+  document.getElementById('delete').addEventListener('click', function(event){
+    var req = new XMLHttpRequest();
+	var payload = document.getElementById('delete').name;
+	alert(payload);
+	// req.open('POST', 'http://52.27.157.90:3000/api/workout/', true);
+	// req.setRequestHeader('Content-Type', 'application/json');	
+	// req.send(JSON.stringify(payload));
+	// req.addEventListener('load', function(){
+		// if(req.status >=200 && req.status < 400){
+			// populateTable();
+		// }
+		// event.preventDefault();
+	// })
+  });
+  
+  
 }
+
+
 
 
