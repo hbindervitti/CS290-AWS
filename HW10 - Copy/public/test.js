@@ -17,10 +17,6 @@ function populateTable(){
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
-			//delete old table
-			// var tbl = document.getElementById('ExerciseTable');
-			// if(tbl) tbl.parentNode.removeChild(tbl);
-			
 			var table = document.createElement("table");
 			table.setAttribute('id', 'ExerciseTable');
 			var tblBody = document.createElement("tbody");			
@@ -59,8 +55,6 @@ function populateTable(){
 			
 			// fill in table row
 			for(var item in response){				
-				// console.log( item + ": " + response[item]);		//for debug
-				// alert(response[item].name);
 				var row = document.createElement("tr");
 				row.setAttribute('id', item.id);
 				var cell = document.createElement("td");
@@ -106,14 +100,11 @@ function deleteRow(rID){
     var req = new XMLHttpRequest();
 	req.open('DELETE', 'http://52.27.157.90:3000/api/workout/' + rID, true);
 	req.send();
-	console.log("req sent!");		//for debug!
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
-			console.log('status good!');		//for debug!
 			//delete old table
 			var tbl = document.getElementById('ExerciseTable');
 			if(tbl) tbl.parentNode.removeChild(tbl);
-			alert('table deleted?');			//for debug!
 			populateTable();
 		}
 		event.preventDefault();
