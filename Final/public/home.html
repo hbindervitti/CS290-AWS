@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	
+  </head>
+  <body>
+    <script src="requests.js"></script>
+    <form id="newExercise">
+      <fieldset>
+		<legend>Add an exercise</legend>
+        <legend>Exercise Name</legend>
+        <input type="text" name="name" id="name"></input>
+		
+		<legend>Repetitions</legend>
+        <input type="number" name="reps" id="reps"></input>
+		
+		<legend>Weight</legend>
+        <input type="number" name="weight" id="weight"></input>
+		
+		<legend>Date</legend>
+        <input type="date" name="date" id="date"></input>
+		
+		<legend>Unit</legend>
+        <input type="radio" id="lbs" name = "lbs" value="1">lbs</input>
+		<input type="radio" id="lbs" name = "lbs" value="0">kgs</input>
+		
+        <p><input type="submit" id="insert" value="Add Exercise"></input></p>
+      </fieldset>
+    </form>
+	
+  </body>
+</html>
