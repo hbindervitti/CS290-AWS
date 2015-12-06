@@ -71,8 +71,7 @@ function populateTable(){
 				cell.appendChild(text);
 				row.appendChild(cell);
 				
-				//add delete and edit buttons with id = response[item].id
-				// var deleteBtn = createButton('Delete', response[item].id);
+				//add delete and edit buttons 
 				var cell = document.createElement("td");
 				cell.innerHTML = '<input id=' + response[item].id + ' type="button" value="Delete" />';
 				cell.appendChild(text);
@@ -87,13 +86,5 @@ function populateTable(){
 	});
 }
 
-
-function createButton(btnLabel, bID){
-	var btn = document.createElement('input');
-	btn.setAttribute('type', 'submit');
-	btn.setAttribute('id', bID);
-	btn.setAttribute('value', btnLabel);
-	document.body.appendChild(btn);
-}
 
 
