@@ -101,15 +101,15 @@ function populateTable(){
 function deleteRow(rID){
     var req = new XMLHttpRequest();
 	req.open('DELETE', 'http://52.27.157.90:3000/api/workout/' + rID, true);
-	// req.setRequestHeader('Content-Type', 'application/json');	
 	req.send();
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
 			var body = document.getElementsByTagName("body")[0];
 			var tbl = body.getElementsByTagName("table")[0];
 			tbl.deleteRow(rID);		
+			populateTable();
 		}
-		// event.preventDefault();
+		event.preventDefault();
 	})
 	
 }
