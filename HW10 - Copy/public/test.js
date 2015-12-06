@@ -17,6 +17,7 @@ function populateTable(){
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
+			
 			var table = document.createElement("table");
 			var tblBody = document.createElement("tbody");			
 			//create header
@@ -57,6 +58,7 @@ function populateTable(){
 				// console.log( item + ": " + response[item]);		//for debug
 				// alert(response[item].name);
 				var row = document.createElement("tr");
+				row.setAttribute('id', item.id);
 				var cell = document.createElement("td");
 				var text = document.createTextNode(response[item].name);
 				cell.appendChild(text);
@@ -90,6 +92,7 @@ function populateTable(){
 				table.appendChild(tblBody);
 				body.appendChild(table);
 			}
+			
 		}
 		event.preventDefault;
 	});
@@ -102,7 +105,15 @@ function deleteRow(rID){
 	req.send();
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
-			populateTable();
+			var body = document.getElementsByTagName("body")[0];
+			var tbl = document.getElementById(rID);
+			var tblBody = tbl.getElementsByTagName("tbody")[0];
+			for (var i = 0, row; row = table.rows[i]; i++) {
+			   if(row == rID){
+				   	tbl.deleteRow(row);			   
+			   }   
+			}
+			
 		}
 		event.preventDefault();
 	})
