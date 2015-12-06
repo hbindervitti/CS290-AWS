@@ -146,7 +146,7 @@ function editRow(rID){
 			legend.appendChild(text);
 			f.appendChild(legend);
 			var date = document.createElement("input"); 
-			date.setAttribute('type',"text");		//try as text
+			date.setAttribute('type',"text");
 			date.setAttribute('id',"date");
 			f.appendChild(date);
 			//lbs or kgs
@@ -186,23 +186,44 @@ function editRow(rID){
 			reps.setAttribute('value', response[0].reps);
 			weight.setAttribute('value', response[0].weight);
 			var exerciseDate = (response[0].date).substring(0, 9);
-			console.log(date);
-			date.setAttribute('value', exerciseDate);		//not working yet
+			date.setAttribute('value', exerciseDate);		
 			if(response[0].lbs == 1){
 				lbs.setAttribute('checked', 'checked');
 			}else if(response[0].lbs == 0){
 				kgs.setAttribute('checked', 'checked');
 			}
-			
-			
+						
 		}
 		event.preventDefault;
 	});
 }
 
 function updateRow(rID){
+	var req = new XMLHttpRequest();
+	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
+	payload.name = document.getElementById('name').value;
+	payload.reps = document.getElementById('reps').value;
+	payload.weight = document.getElementById('weight').value;
+	payload.date = document.getElementById('date').value;
+	var radios = document.getElementsByName("lbs");
+	for(var i = 0; i < radios.length; i++){
+		if(radios[i].checked){
+			payload.lbs = radios[i].value;
+		}
+		break;
+	}
 	
-	alert("in updateRow");
+	req.open('POST', 'http://52.27.157.90:3000/api/workout/' + rID, true);
+	req.setRequestHeader('Content-Type', 'application/json');	
+	req.send(JSON.stringify(payload));
+	req.addEventListener('load', function(){
+		if(req.status >=200 && req.status < 400){
+			populateTable();
+		}
+		event.preventDefault();
+	})
+	
+	
 }
 
 function deleteRow(rID){
