@@ -182,8 +182,12 @@ function editRow(rID){
 			//end create form
 			
 			//populate form with values from json string
-			// console.log("response text: " + response[0].id + " " + response[0].name + " " + response[0].reps);
 			ename.setAttribute('value', response[0].name);
+			reps.setAttribute('value', response[0].reps);
+			weight.setAttribute('value', response[0].weight);
+			date.setAttribute('value', response[0].date);
+			
+			
 		}
 		event.preventDefault;
 	});
