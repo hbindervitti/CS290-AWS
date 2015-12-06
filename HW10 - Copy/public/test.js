@@ -109,7 +109,7 @@ function deleteRow(rID){
 			var tbl = body.getElementsByTagName("table")[0];
 			tbl.deleteRow(rID);		
 		}
-		event.preventDefault();
+		// event.preventDefault();
 	})
 	
 }
