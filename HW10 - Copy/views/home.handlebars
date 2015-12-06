@@ -6,6 +6,7 @@ Handlebars.registerHelper("key_value", function (obj, fn) {
                 soFar += fn({key:key, value:obj[key]});
             }
         }
+		alert("in helper!");
         return soFar;
     });
 
@@ -15,7 +16,9 @@ Handlebars.registerHelper("key_value", function (obj, fn) {
 
 <h1>Exercise Database</h1>
 <p>{{debugString}}</p>
-<div id="stuff"></div>
+<div id="stuff">
+	{{key_value}}
+</div>
 
 
 <form id="newExercise">
