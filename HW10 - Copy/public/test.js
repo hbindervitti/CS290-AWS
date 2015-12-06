@@ -185,12 +185,16 @@ function editRow(rID){
 			ename.setAttribute('value', response[0].name);
 			reps.setAttribute('value', response[0].reps);
 			weight.setAttribute('value', response[0].weight);
-			var exerciseDate = (response[0].date).substring(0, 9);
+			var exerciseDate = (response[0].date).substring(0, 10);
 			date.setAttribute('value', exerciseDate);		
 			if(response[0].lbs == 1){
-				lbs.setAttribute('checked', 'checked');
+				lbs.setAttribute('checked', 'true');
 			}else if(response[0].lbs == 0){
-				kgs.setAttribute('checked', 'checked');
+				kgs.setAttribute('checked', 'true');
+			}
+			else{
+				lbs.setAttribute('checked', 'false');
+				kgs.setAttribute('checked', 'false');
 			}
 						
 		}
