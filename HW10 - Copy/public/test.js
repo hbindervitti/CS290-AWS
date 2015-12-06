@@ -84,8 +84,8 @@ function populateTable(){
 				var cell = document.createElement("td");
 				cell.innerHTML = '<input id="edit" name=' + response[item].id + ' type="submit" value="Edit" onclick="editRow('+item.id+')"/>';
 				row.appendChild(cell);
-				colsole.log("item id: " + item.id + "\n item.name: " + item.name);		//for debug
-				colsole.log("response id: " + response[item].id + "\n response.name: " + response[item].name);		//for debug
+				console.log("item id: " + item.id + "\n item.name: " + item.name);		//for debug
+				console.log("response id: " + response[item].id + "\n response.name: " + response[item].name);		//for debug
 				tblBody.appendChild(row);
 				table.appendChild(tblBody);
 				body.appendChild(table);
