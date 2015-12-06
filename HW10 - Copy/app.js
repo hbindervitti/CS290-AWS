@@ -26,7 +26,7 @@ app.get('/api/',function(req,res,next){
 app.get('/',function(req,res,next){
   var context = {};
  
-    res.render('home');
+    res.render('home', context);
 	 // res.send(JSON.stringify(rows));
 });
 
