@@ -108,14 +108,10 @@ function deleteRow(rID){
 	req.send();
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
-			// var body = document.getElementsByTagName("body")[0];
-			// var tbl = body.getElementsByTagName("table")[0];
-			// var temp = document.getElementById("tbl");
-			// temp.innerHTML = "";
-			// tbl.parentNode.removeChild(tbl);
 			//delete old table
 			var tbl = document.getElementById('ExerciseTable');
 			if(tbl) tbl.parentNode.removeChild(tbl);
+			alert('table deleted?');
 			populateTable();
 		}
 		event.preventDefault();
