@@ -19,8 +19,9 @@ function populateTable(){
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
+			body.innerHTML = "";
 			var table = document.createElement("table");
-			var tblBody = document.createElement("tbody");
+			var tblBody = document.createElement("tbody");			
 			//create header
 			var row = document.createElement("tr");
 			var cell = document.createElement("th");
