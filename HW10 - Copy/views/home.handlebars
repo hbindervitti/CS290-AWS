@@ -1,15 +1,11 @@
-Handlebars.registerHelper("key_value", function (obj, fn) {
-        var soFar = "";
-        var key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                soFar += fn({key:key, value:obj[key]});
-            }
-        }
-		alert("in helper!");
-        return soFar;
-    });
-
+Handlebars.registerHelper("printItems", function(results) {
+  var html = "<ul>";
+  items.forEach(function(entry) {
+    html += "<li>" + entry + "</li>";
+  });
+  html += "</ul>";
+  return html;
+});
 
 
 </script>
@@ -17,7 +13,7 @@ Handlebars.registerHelper("key_value", function (obj, fn) {
 <h1>Exercise Database</h1>
 <p>{{debugString}}</p>
 <div id="stuff">
-	{{key_value}}
+	{{printItems results}}
 </div>
 
 
