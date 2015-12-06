@@ -145,10 +145,11 @@ document.getElementById('insert').addEventListener('click', function(event){
 	req.setRequestHeader('Content-Type', 'application/json');
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
-			populateTable();
+			
 		}
 	})
 	req.send(JSON.stringify(payload));
 	event.preventDefault();
+	populateTable();
   });
 }
