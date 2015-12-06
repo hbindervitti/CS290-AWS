@@ -215,8 +215,8 @@ function updateRow(rID){
 	for(var i = 0; i < radios.length; i++){
 		if(radios[i].checked){
 			payload.lbs = radios[i].value;
+			break;
 		}
-		break;
 	}
 	
 	req.open('POST', 'http://52.27.157.90:3000/api/workout/' + rID, true);
