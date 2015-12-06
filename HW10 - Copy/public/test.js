@@ -96,32 +96,56 @@ function populateTable(){
 	});
 }
 
-function insertRow(){
-	var req = new XMLHttpRequest();
-		var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
-		document.getElementById('insert').addEventListener('click', function(event){
-			payload.name = document.getElementById('name').value;
-			payload.reps = document.getElementById('reps').value;
-			payload.weight = document.getElementById('weight').value;
-			payload.date = document.getElementById('date').value;
-			var radios = document.getElementsByName("lbs");
-			for(var i = 0; i < radios.length; i++){
-				if(radios[i].checked){
-					payload.lbs = radios[i].value;
-				}
-				break;
-			}
-		})
-		console.log(payload);			// for debug
-		req.open('POST', 'http://52.27.157.90:3000/api/workout/' + payload, true);
-		req.setRequestHeader('Content-Type', 'application/json');
-		req.addEventListener('load', function(){
-			if(req.status >=200 && req.status < 400){
-				populateTable();
-			}
-		})	
-        req.send(JSON.stringify(payload));
-		event.preventDefault();
-}
+// function insertRow(){
+	// var req = new XMLHttpRequest();
+		// var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
+		// document.getElementById('insert').addEventListener('click', function(event){
+			// payload.name = document.getElementById('name').value;
+			// payload.reps = document.getElementById('reps').value;
+			// payload.weight = document.getElementById('weight').value;
+			// payload.date = document.getElementById('date').value;
+			// var radios = document.getElementsByName("lbs");
+			// for(var i = 0; i < radios.length; i++){
+				// if(radios[i].checked){
+					// payload.lbs = radios[i].value;
+				// }
+				// break;
+			// }
+		// })
+		// console.log(payload);			// for debug
+		// req.open('POST', 'http://52.27.157.90:3000/api/workout/' + payload, true);
+		// req.setRequestHeader('Content-Type', 'application/json');
+		// req.addEventListener('load', function(){
+			// if(req.status >=200 && req.status < 400){
+				// populateTable();
+			// }
+		// })
+        // req.send(JSON.stringify(payload));
+		// event.preventDefault();
+// }
 
-
+document.getElementById('insert').addEventListener('click', function(event){
+    var req = new XMLHttpRequest();
+	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
+	payload.name = document.getElementById('name').value;
+		payload.reps = document.getElementById('reps').value;
+		payload.weight = document.getElementById('weight').value;
+		payload.date = document.getElementById('date').value;
+		var radios = document.getElementsByName("lbs");
+		for(var i = 0; i < radios.length; i++){
+			if(radios[i].checked){
+				payload.lbs = radios[i].value;
+			}
+			break;
+		}
+	
+	req.open('POST', 'http://52.27.157.90:3000/api/workout/' + payload, true);
+	req.setRequestHeader('Content-Type', 'application/json');
+	req.addEventListener('load', function(){
+		if(req.status >=200 && req.status < 400){
+			populateTable();
+		}
+	})
+	req.send(JSON.stringify(payload));
+	event.preventDefault();
+  });
