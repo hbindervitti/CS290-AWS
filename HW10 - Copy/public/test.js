@@ -17,8 +17,8 @@ function populateTable(){
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
-			var temp = body.getElementById("tbl");
-			temp.innerHTML = "";
+			// var temp = body.getElementById("tbl");
+			// temp.innerHTML = "";
 			var table = document.createElement("table");
 			var tblBody = document.createElement("tbody");			
 			//create header
