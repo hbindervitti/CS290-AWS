@@ -1,5 +1,3 @@
-alert("in global.js");
-
 //DOM readyState
 document.addEventListener('DOMContentLoaded', function(event){			
 	populateTable();	
@@ -74,7 +72,7 @@ function populateTable(){
 				row.appendChild(cell);
 				
 				//add delete and edit buttons with id = response[item].id
-				
+				createButton('Delete', response[item].id;
 				
 				tblBody.appendChild(row);
 				table.appendChild(tblBody);
@@ -84,3 +82,14 @@ function populateTable(){
 		event.preventDefault;
 	});
 }
+
+
+function createButton(btnLabel, bID){
+	var btn = document.createElement('input');
+	btn.setAttribute('type', 'submit');
+	btn.setAttribute('id', bID);
+	btn.setAttribute('value', 'btnLabel');
+	document.body.appendChild(btn);
+}
+
+
