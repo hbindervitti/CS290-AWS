@@ -14,7 +14,6 @@ function populateTable(){
 	req.addEventListener('load', function(event){
 		if(req.status >=200 && req.status < 400){
 			var response = JSON.parse(req.responseText);
-			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];
 			var table = document.createElement("table");
@@ -58,32 +57,32 @@ function populateTable(){
 				var row = document.createElement("tr");
 				row.setAttribute('id', item.id);
 				var cell = document.createElement("td");
-				var text = document.createTextNode(response[item].name);
+				var text = document.createTextNode(item.name);
 				cell.appendChild(text);
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				var text = document.createTextNode(response[item].reps);
+				var text = document.createTextNode(item.reps);
 				cell.appendChild(text);
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				var text = document.createTextNode(response[item].weight);
+				var text = document.createTextNode(item.weight);
 				cell.appendChild(text);
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				var text = document.createTextNode(response[item].date);
+				var text = document.createTextNode(item.date);
 				cell.appendChild(text);
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				var text = document.createTextNode(response[item].lbs);
+				var text = document.createTextNode(item.lbs);
 				cell.appendChild(text);
 				row.appendChild(cell);
 				
 				//add delete and edit buttons 
 				var cell = document.createElement("td");
-				cell.innerHTML = '<input id="delete" name=' + response[item].id + ' type="submit" value="Delete" onclick="deleteRow('+response[item].id + ')"/>';
+				cell.innerHTML = '<input id="delete" name=' + item.id + ' type="submit" value="Delete" onclick="deleteRow('+item.id + ')"/>';
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				cell.innerHTML = '<input id="edit" name=' + response[item].id + ' type="submit" value="Edit" />';
+				cell.innerHTML = '<input id="edit" name=' + item.id + ' type="submit" value="Edit" onclick="editRow('+item.id+')"/>';
 				row.appendChild(cell);
 				
 				tblBody.appendChild(row);
@@ -138,10 +137,6 @@ document.getElementById('insert').addEventListener('click', function(event){
 		event.preventDefault();
 	})
   });
-  
-
-  
-  
 }
 
 
