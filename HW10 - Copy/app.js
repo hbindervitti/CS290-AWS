@@ -27,7 +27,7 @@ app.get('/',function(req,res,next){
   var context = {};
  
     // res.render('home', context);
-	res.sendFile('test.html', {root: __dirname })
+	res.sendFile('public/test.html', {root: __dirname })
 });
 
 app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/insert?c=hey
