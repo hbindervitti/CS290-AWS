@@ -55,7 +55,7 @@ function populateTable(){
 			// fill in table row
 			for(var item in response){				
 				var row = document.createElement("tr");
-				row.setAttribute('id', item.id);
+				row.setAttribute('id', response[item].id);
 				var cell = document.createElement("td");
 				var text = document.createTextNode(response[item].name);
 				cell.appendChild(text);
@@ -79,13 +79,12 @@ function populateTable(){
 				
 				//add delete and edit buttons 
 				var cell = document.createElement("td");
-				cell.innerHTML = '<input id="delete" name=' + response[item].id + ' type="submit" value="Delete" onclick="deleteRow('+item.id + ')"/>';
+				cell.innerHTML = '<input id="delete" name=' + response[item].id + ' type="submit" value="Delete" onclick="deleteRow('+response[item].id + ')"/>';
 				row.appendChild(cell);
 				var cell = document.createElement("td");
-				cell.innerHTML = '<input id="edit" name=' + response[item].id + ' type="submit" value="Edit" onclick="editRow('+item.id+')"/>';
+				cell.innerHTML = '<input id="edit" name=' + response[item].id + ' type="submit" value="Edit" onclick="editRow('+response[item].id+')"/>';
 				row.appendChild(cell);
-				console.log("item id: " + item.id + "\n item.name: " + item.name);		//for debug
-				console.log("response id: " + response[item].id + "\n response.name: " + response[item].name);		//for debug
+				
 				tblBody.appendChild(row);
 				table.appendChild(tblBody);
 				body.appendChild(table);
