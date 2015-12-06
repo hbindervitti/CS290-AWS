@@ -39,16 +39,12 @@ app.post('/api/workout/',function(req,res,next){
   });
 });
 
-app.get('/api/workout/', function(req,res,next){			//http://52.27.157.90:3000/delete?id=2
-	var context = {};
+app.delete('/api/workout/:id', function(req,res,next){			//http://52.27.157.90:3000/delete?id=2
 	mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
 		if(err){
 			next(err);
 			return;
 		}
-		context.debugString = "Deleted " + result.changedRows + " rows.";			//says deleted 0 rows when 1 deleted
-		// context.results = rows;
-		res.render('home', context);
 	});	
 });
 
