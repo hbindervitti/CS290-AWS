@@ -115,13 +115,13 @@ function insertRow(){
 		console.log(payload);			// for debug
 		req.open('POST', 'http://52.27.157.90:3000/api/workout/' + payload, true);
 		req.setRequestHeader('Content-Type', 'application/json');
-        req.send(JSON.stringify(payload));
 		req.addEventListener('load', function(){
 			if(req.status >=200 && req.status < 400){
 				populateTable();
 			}
-			event.preventDefault();
 		})	
+        req.send(JSON.stringify(payload));
+		event.preventDefault();
 }
 
 
