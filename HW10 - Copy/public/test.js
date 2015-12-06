@@ -115,7 +115,7 @@ function deleteRow(rID){
 			// tbl.parentNode.removeChild(tbl);
 			populateTable();
 		}
-		event.preventDefault();
+		// event.preventDefault();
 	})
 	
 }
