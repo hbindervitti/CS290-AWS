@@ -13,6 +13,16 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
+app.get('/api/',function(req,res,next){
+  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }	
+    res.send(rows);
+  }); 
+});
+
 app.get('/',function(req,res,next){
   var context = {};
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
@@ -24,8 +34,8 @@ app.get('/',function(req,res,next){
 	
 	context.results = rows;
 	// console.log(context.results);
-    // res.render('home', context);
-	 res.send(JSON.stringify(rows));
+    res.render('home', context);
+	 // res.send(JSON.stringify(rows));
   }); 
 });
 
