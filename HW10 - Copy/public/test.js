@@ -106,7 +106,8 @@ function deleteRow(rID){
 		if(req.status >=200 && req.status < 400){
 			var body = document.getElementsByTagName("body")[0];
 			var tbl = body.getElementsByTagName("table")[0];
-			tbl.deleteRow(rID);		
+			if(tbl) 
+				tbl.parentNode.removeChild(tbl);
 			populateTable();
 		}
 		event.preventDefault();
