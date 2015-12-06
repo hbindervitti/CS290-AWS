@@ -8,8 +8,6 @@ table, td, th{
 	border: 1px solid black;
 	border-collapse: separate;
 }
-tbody tr:nth-of-type(odd){
-}
 tbody tr:nth-of-type(even){
 	background:#e6e6e6;
 }
