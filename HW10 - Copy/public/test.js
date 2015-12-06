@@ -42,6 +42,14 @@ function populateTable(){
 			var text = document.createTextNode("Lbs");
 			cell.appendChild(text);
 			row.appendChild(cell);
+			var cell = document.createElement("th");
+			var text = document.createTextNode("");
+			cell.appendChild(text);
+			row.appendChild(cell);
+			var cell = document.createElement("th");
+			var text = document.createTextNode("");
+			cell.appendChild(text);
+			row.appendChild(cell);
 			tblBody.appendChild(row);	
 				
 			
