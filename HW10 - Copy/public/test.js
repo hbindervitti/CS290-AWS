@@ -1,6 +1,7 @@
 //DOM readyState
-document.addEventListener('DOMContentLoaded', bindButtons, function(event){			
+document.addEventListener('DOMContentLoaded', function(event){			
 	populateTable();	
+	bindButtons();
 });
 
 
@@ -124,7 +125,7 @@ function populateTable(){
 		// event.preventDefault();
 // }
 
-function bindButtons(
+function bindButtons(){
 document.getElementById('insert').addEventListener('click', function(event){
     var req = new XMLHttpRequest();
 	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
@@ -150,4 +151,4 @@ document.getElementById('insert').addEventListener('click', function(event){
 	req.send(JSON.stringify(payload));
 	event.preventDefault();
   });
-)
+})
