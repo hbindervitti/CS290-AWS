@@ -72,7 +72,7 @@ function populateTable(){
 				row.appendChild(cell);
 				
 				//add delete and edit buttons with id = response[item].id
-				createButton('Delete', response[item].id;
+				createButton('Delete', response[item].id);
 				
 				tblBody.appendChild(row);
 				table.appendChild(tblBody);
