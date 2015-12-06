@@ -28,7 +28,6 @@ app.get('/',function(req,res,next){
  
     res.render('home');
 	 // res.send(JSON.stringify(rows));
-  }); 
 });
 
 app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/insert?c=hey
