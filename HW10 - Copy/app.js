@@ -77,7 +77,7 @@ app.post('/api/workout/:id',function(req,res,next){
         res.send();		//might not need this
       });
     }
-  });
+  // });
 });
 
 
