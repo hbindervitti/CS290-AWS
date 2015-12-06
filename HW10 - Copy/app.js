@@ -66,10 +66,11 @@ app.get('/api/workout/:id',function(req,res,next){
 //update record 
 app.post('/api/workout/:id',function(req,res,next){
       // if(result.length == 1){
-      var curVals = req.body;
-	  console.log(curVals);
+      // var curVals = req;
+	  // console.log(curVals);
       mysql.pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-        [req.body.name || curVals.name, req.body.reps || curVals.reps, req.body.weight || curVals.weight, req.body.date || curVals.date, req.body.lbs || curVals.lbs, req.body.id],
+	  [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs, req.params.id],
+        // [req.body.name || curVals.name, req.body.reps || curVals.reps, req.body.weight || curVals.weight, req.body.date || curVals.date, req.body.lbs || curVals.lbs, req.body.id],
         function(err, result){
         if(err){
           next(err);
