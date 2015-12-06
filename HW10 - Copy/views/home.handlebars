@@ -1,21 +1,15 @@
-<script language="javascript" type="text/javascript" >
-console.log('in global');
+Handlebars.registerHelper("key_value", function (obj, fn) {
+        var soFar = "";
+        var key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                soFar += fn({key:key, value:obj[key]});
+            }
+        }
+        return soFar;
+    });
 
-document.addEventListener('DOMContentLoaded', function(){
-	var req = new XMLHttpRequest();
-		
-	req.onreadystatechange = function(){
-		if(req.readystate == 4 && req.status == 200){
-			document.getElementById('stuff').innerHTML = req.responseText;
-		}else{
-			document.getElementById('stuff').innerHTML = 'waiting';
-		}
-	}
 
-	req.open("GET", "http://localhost:3000/", true);
-	req.send();
-	
-});
 
 </script>
 
