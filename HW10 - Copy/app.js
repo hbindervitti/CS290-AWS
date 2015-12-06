@@ -36,7 +36,7 @@ app.post('/api/workout/',function(req,res,next){
       next(err);
       return;
     }
-	req.send();
+	req.send(result);
   });
 });
 
