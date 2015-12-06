@@ -106,12 +106,14 @@ function deleteRow(rID){
     var req = new XMLHttpRequest();
 	req.open('DELETE', 'http://52.27.157.90:3000/api/workout/' + rID, true);
 	req.send();
+	console.log("req sent!");		//for debug!
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
+			console.log('status good!');		//for debug!
 			//delete old table
 			var tbl = document.getElementById('ExerciseTable');
 			if(tbl) tbl.parentNode.removeChild(tbl);
-			alert('table deleted?');
+			alert('table deleted?');			//for debug!
 			populateTable();
 		}
 		event.preventDefault();

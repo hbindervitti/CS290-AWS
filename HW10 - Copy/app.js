@@ -46,7 +46,7 @@ app.delete('/api/workout/:id', function(req,res,next){			//http://52.27.157.90:3
 			return;
 		}
 	});	
-	res.send(result);
+	res.send();
 });
 
 //sample update  /safe-update?id=2&name=The+Task&done=false&due=2015-12-5
