@@ -1,4 +1,4 @@
-//DOM readyState
+//checks DOM readyState and creates table and binds insert record button
 document.addEventListener('DOMContentLoaded', function(event){			
 	populateTable();	
 	bindButtons();
@@ -95,6 +95,8 @@ function populateTable(){
 	});
 }
 
+//creates and populates form to edit record
+//takes row ID number as param
 function editRow(rID){
 	var req = new XMLHttpRequest();	
 	req.open('GET', 'http://52.27.157.90:3000/api/workout/' + rID, true);
@@ -189,7 +191,6 @@ function editRow(rID){
 			weight.setAttribute('value', response[0].weight);
 			var exerciseDate = (response[0].date).substring(0, 10);
 			date.setAttribute('value', exerciseDate);
-				alert("response: " + response[0].lbs);		//for debug
 			if(response[0].lbs === 1){
 				lbs.setAttribute('checked', 'true');
 			}else if(response[0].lbs === 0){
@@ -205,6 +206,8 @@ function editRow(rID){
 	});
 }
 
+//sends updated record via post and refreshes table
+//takes row ID number as param
 function updateRow(rID){
 	var req = new XMLHttpRequest();
 	var payload = {name:null, reps:null, weight:null, date:null, lbs:null};
@@ -215,7 +218,6 @@ function updateRow(rID){
 	var radios = document.getElementsByName("ulbs");
 	for(var i = 0; i < radios.length; i++){
 		if(radios[i].checked){
-			alert("radio value: " + radios[i].value);		//for debug
 			payload.lbs = radios[i].value;
 			break;
 		}
@@ -230,10 +232,11 @@ function updateRow(rID){
 		}
 		event.preventDefault();
 	})
-	
-	
 }
 
+
+//deletes a record and refreshes table
+//takes row ID number as param
 function deleteRow(rID){
     var req = new XMLHttpRequest();
 	req.open('DELETE', 'http://52.27.157.90:3000/api/workout/' + rID, true);
@@ -250,6 +253,7 @@ function deleteRow(rID){
 	
 }
 
+//inserts new record and refreshes table
 function bindButtons(){
 document.getElementById('insert').addEventListener('click', function(event){
     var req = new XMLHttpRequest();
