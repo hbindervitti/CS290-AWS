@@ -182,11 +182,16 @@ function editRow(rID){
 			//end create form
 			
 			//populate form with values from json string
-			console.log("response text: " + response[0].id + " " + response[0].name + " " + response[0].reps);
-			
+			// console.log("response text: " + response[0].id + " " + response[0].name + " " + response[0].reps);
+			ename.setAttribute('value', response[0].name);
 		}
 		event.preventDefault;
 	});
+}
+
+function updateRow(rID){
+	
+	alert("in updateRow");
 }
 
 function deleteRow(rID){
