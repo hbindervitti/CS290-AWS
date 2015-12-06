@@ -40,7 +40,7 @@ app.post('/api/workout/',function(req,res,next){
 });
 
 app.delete('/api/workout/:id', function(req,res,next){			//http://52.27.157.90:3000/delete?id=2
-	mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
+	mysql.pool.query("DELETE FROM workouts WHERE id=?", [req.params.id], function(err, result){
 		if(err){
 			next(err);
 			return;
