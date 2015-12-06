@@ -25,7 +25,7 @@ app.get('/',function(req,res,next){
 	context.results = rows;
 	// console.log(context.results);
     // res.render('home', context);
-	res.render('test', context);
+	res.render('test.html', context);
   }); 
 });
 
