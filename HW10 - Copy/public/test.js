@@ -188,7 +188,8 @@ function editRow(rID){
 			reps.setAttribute('value', response[0].reps);
 			weight.setAttribute('value', response[0].weight);
 			var exerciseDate = (response[0].date).substring(0, 10);
-			date.setAttribute('value', exerciseDate);		
+			date.setAttribute('value', exerciseDate);
+				alert("response: " + response[0].lbs);		//for debug
 			if(response[0].lbs === 1){
 				lbs.setAttribute('checked', 'true');
 			}else if(response[0].lbs === 0){
@@ -214,6 +215,7 @@ function updateRow(rID){
 	var radios = document.getElementsByName("ulbs");
 	for(var i = 0; i < radios.length; i++){
 		if(radios[i].checked){
+			alert("radio value: " + radios[i].value);		//for debug
 			payload.lbs = radios[i].value;
 			break;
 		}
