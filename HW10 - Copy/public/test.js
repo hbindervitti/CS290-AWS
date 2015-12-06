@@ -12,14 +12,11 @@ function populateTable(){
 	var payload = {name:name, reps:reps, weight:weight, date:date, lbs:lbs};
 	
 	req.open('GET', 'http://52.27.157.90:3000/', true);
-	// req.open('GET', '',  true);
 	req.setRequestHeader("Content-type", "application/json");
 	req.send(null);
 	req.addEventListener('load', function(){
 		if(req.status >=200 && req.status < 400){
 			var response = JSON.parse(req.responseText);
-			// var response = [];
-			// response = {"id":2,"name":"Lift Weights","reps":12,"weight":5,"date":"2015-11-30T00:00:00.000Z","lbs":1},{"id":3,"name":"Do stuff","reps":17,"weight":20,"date":"2015-12-01T00:00:00.000Z","lbs":1}
 			console.log(response);
 			//create table
 			var body = document.getElementsByTagName("body")[0];

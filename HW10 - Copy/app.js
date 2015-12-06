@@ -26,8 +26,8 @@ app.get('/api/',function(req,res,next){
 app.get('/',function(req,res,next){
   var context = {};
  
-    res.render('home', context);
-	 // res.send(JSON.stringify(rows));
+    // res.render('home', context);
+	res.sendfile('views/test.html', {root: __dirname })
 });
 
 app.get('/insert-name',function(req,res,next){		//http://52.27.157.90:3000/insert?c=hey
