@@ -159,8 +159,6 @@ function editRow(rID){
 			lbs.setAttribute('id',"ulbs");
 			lbs.setAttribute('name',"ulbs");
 			lbs.setAttribute('value', "1");
-			// var text = document.createTextNode("Lbs");
-			// lbs.appendChild(text);
 			f.appendChild(lbs);
 			var text = document.createTextNode("Lbs");
 			f.appendChild(text);		//lbs button label
@@ -171,11 +169,9 @@ function editRow(rID){
 			kgs.setAttribute('id',"ulbs");			
 			kgs.setAttribute('name',"ulbs");
 			kgs.setAttribute('value', "0");
-			// var text = document.createTextNode("Kgs");		//text for radio buttons not showing - try just adding a next node to form instead of input
-			// kgs.appendChild(text);
 			f.appendChild(kgs);			
 			var text = document.createTextNode("Kgs");
-			f.appendChild(text);		//lbs button label
+			f.appendChild(text);		//kgs button label
 			var linebreak = document.createElement("br");
 			f.appendChild(linebreak);
 			//submit button
@@ -263,7 +259,12 @@ document.getElementById('insert').addEventListener('click', function(event){
 	var radios = document.getElementsByName("lbs");
 	for(var i = 0; i < radios.length; i++){
 		if(radios[i].checked){
-			payload.lbs = radios[i].value;
+			alert(radios[i].value);		//for debug
+			if(radios[i].value == 0){
+				payload.lbs = '0';
+			}else{
+				payload.lbs = radios[i].value;
+			}
 		}
 		break;
 	}
