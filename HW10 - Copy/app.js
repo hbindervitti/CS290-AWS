@@ -30,7 +30,7 @@ app.get('/',function(req,res,next){
 	res.sendFile('public/table.html', {root: __dirname })
 });
 
-app.post('/api/workout',function(req,res,next){
+app.post('/api/workout/',function(req,res,next){
   mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
     if(err){
       next(err);

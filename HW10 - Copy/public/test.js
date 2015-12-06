@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', function(event){
 
 //fill table with data
 function populateTable(){
-	var req = new XMLHttpRequest();
-	// var payload = {name:name, reps:reps, weight:weight, date:date, lbs:lbs};
-	
+	var req = new XMLHttpRequest();	
 	req.open('GET', 'http://52.27.157.90:3000/api/workout/', true);
 	req.setRequestHeader("Content-type", "application/json");
 	req.send(null);
@@ -126,3 +124,5 @@ document.getElementById('insert').addEventListener('click', function(event){
 	})
   });
 }
+
+
